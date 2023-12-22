@@ -4,6 +4,8 @@ import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { dashboardRoutes } from './dashboard/dashboard.routes';
+import { Auth } from '@angular/fire/auth';
+import { authGuard } from './services/auth.guard';
 
 const routes: Routes = [
 
@@ -11,7 +13,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: '', 
     component: DashboardComponent,
-    children: dashboardRoutes
+    children: dashboardRoutes,
+    canActivate: [ authGuard ]
   },
   { path: '**', redirectTo: '' }
 
