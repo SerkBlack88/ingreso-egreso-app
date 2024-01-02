@@ -33,7 +33,6 @@ export class AuthService {
           console.log('docSnapshot', docSnapshot.data());
           const user = docSnapshot.data() as Usuario;
           this._user = user;
-          console.log('usersasdfasdf', this._user);
           this.store.dispatch( authActions.setUser({ user }) );
         });
       }
